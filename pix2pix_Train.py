@@ -119,8 +119,6 @@ def main():
 
 
     discriminator = Discriminator(args.batchSize)
-    discriminator.load_state_dict(torch.load(g_path))
-    discriminator.eval()
 
     # Выбор метрик
     criterionGAN = nn.BCELoss()
