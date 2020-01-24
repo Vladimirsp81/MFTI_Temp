@@ -184,9 +184,9 @@ def main():
 
         # Сохранение весов моделей на каждой эпохе
         g_path = os.path.join(args.model_path, 'generator-%d.pkl' % (epoch + 1))
-        torch.save(generator.state_dict(), g_path)
+        torch.save(generator.state_dict(), "/content/drive/My Drive/Colab_Notebooks/Temp")
         g_path_D = os.path.join(args.model_path, 'discriminator-%d.pkl' % (epoch + 1))
-        torch.save(discriminator.state_dict(), g_path_D)
+        torch.save(discriminator.state_dict(), "/content/drive/My Drive/Colab_Notebooks/Temp")
 
 if __name__ == "__main__":
     main()
