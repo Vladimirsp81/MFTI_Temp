@@ -67,18 +67,18 @@ class ImageFolder(data.Dataset):
     def __len__(self):
         return len(self.image_paths)
 
-##### Вспомогательная функция для обучения на GPU
+##### Функция для обучения на GPU
 def to_variable(x):
     if torch.cuda.is_available():
         x = x.cuda()
     return Variable(x)
 
-##### Вспомогательная функция для Math
+
 def denorm(x):
     out = (x + 1) / 2
     return out.clamp(0, 1)
 
-##### Вспомогательная функция для определения GAN Loss
+##### Функция для определения GAN Loss
 def GAN_Loss(input, target, criterion):
     if target == True:
         tmp_tensor = torch.FloatTensor(input.size()).fill_(1.0)
@@ -114,7 +114,7 @@ def main():
 
     # Объявление сетей
     generator = Generator(args.batchSize)
-    #generator.load_state_dict(torch.load(g_path))
+    generator.load_state_dict(torch.load(g_path))
     #generator.eval()
 
     discriminator = Discriminator(args.batchSize)
